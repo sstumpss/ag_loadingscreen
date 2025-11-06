@@ -71,8 +71,8 @@ const bgImages = [
 
 
 // Staff Settings
-const showStaffTeam = true
-const showTipList = true
+const showStaffTeam = false
+const showTipList = false
 
 
 // orange
@@ -81,21 +81,21 @@ const showTipList = true
 // green
 // pink
 // purple
-const theme = "orange"
+const theme = "purple"
 
 // ==== WINTER UPDATE !! ==== \\
-const enableWinterUpdate = false
+const enableWinterUpdate = true
 // ==== WINTER UPDATE !! ==== \\
 
 
 // Text settings
-const name = "<strong>NEV</strong>ERA"
-const underName = "ROLE<b>PLAY</b>"
-const desc = "FiveM Roleplay server featuring an extensive collection of custom scripts, maps, vehicles, unique weapons, and much more."
+const name = "<strong>AST</strong>RAL"
+const underName = "GAM<b>ING</b>"
+const desc = ""
 
 
 // Social media
-const discord = "https://discord.gg/NeveraDev/tw28AqrgWU"  // If = "" then icon will not show up on screen
+const discord = "https://discord.com/astralgaming"  // If = "" then icon will not show up on screen
 const instagram = ""	// https://example.com
 const youtube = "" 		// https://example.com
 const twitter = "" 		// https://example.com
@@ -118,7 +118,7 @@ const showYoutubeVideo = false
 const enableLocalVideo = false
 
 // Local audio
-const localAudio = false
+const localAudio = true
 
 // Image Slideshow Settings
 const enableImageSlideshow = true; // true = use image slideshow if no video is enabled

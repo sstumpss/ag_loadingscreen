@@ -2,9 +2,9 @@ fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 
-author 'Nevera Development'
-description '[FREE] Loading Screen'
-version '1.2'
+author 'stumps X Nevera Development'
+description 'AG Loading Screen'
+version '1.6.5'
 
 loadscreen_manual_shutdown "yes"
 loadscreen 'html/index.html'
@@ -20,4 +20,5 @@ files {
     'html/assets/js/**',
     'html/assets/css/**',
     'html/assets/img/**'
+    'html/assets/images/**'
 }
