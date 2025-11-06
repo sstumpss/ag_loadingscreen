@@ -474,18 +474,27 @@ video {
   top: 0;
 }
 
-
 #bg-slideshow {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: opacity 1s ease-in-out;
-  z-index: -1;
+  z-index: -2;
+  overflow: hidden;
+}
+
+#bg-slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--fadeTime, 1s) ease-in-out;
+}
+
+#bg-slideshow img.active {
   opacity: 1;
-  display: none;
 }

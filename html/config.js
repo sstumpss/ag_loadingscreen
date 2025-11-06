@@ -120,11 +120,17 @@ const enableLocalVideo = false
 // Local audio
 const localAudio = true
 
-// Image Slideshow Settings
-const enableImageSlideshow = true; // true = use image slideshow if no video is enabled
-const imageDisplayTime = 6000;     // how long each image stays up (ms)
-const imageFadeTime = 1000;        // how long fade transition takes (ms)
-const imageRandomOrder = true;     // true = random order, false = in sequence
+// === Slideshow Configuration (v1.6.5) ===
+const enableImageSlideshow = true;
+const slideshowImages = [
+    'images/1.png',
+    'images/2.png',
+    'images/3.png',
+];
+const imageDisplayTime = 6000; // milliseconds
+const imageFadeTime = 1000; // milliseconds
+const imageRandomOrder = true;
+
 
 
 // HELP //

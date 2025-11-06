@@ -338,48 +338,32 @@ load_tips(tipsConfig);
 
 
 
-// -------------------- Slideshow Background --------------------
-if (
-  typeof bgImages !== 'undefined' &&
-  bgImages.length > 0 &&
-  enableImageSlideshow &&
-  !enableLocalVideo &&
-  !showYoutubeVideo
-) {
-  const bgDiv = document.getElementById('bg-slideshow');
-  bgDiv.style.display = 'block';
+// === Image Slideshow System (v1.6.5) ===
+if (typeof enableImageSlideshow !== 'undefined' && enableImageSlideshow) {
+    const slideshow = document.getElementById('bg-slideshow');
+    const images = slideshowImages || ['images/1.png', 'images/2.png', 'images/3.png'];
+    const fadeTime = imageFadeTime || 1000;
+    const displayTime = imageDisplayTime || 6000;
+    const randomOrder = imageRandomOrder || false;
 
-  let currentIndex = -1;
+    if (randomOrder) images.sort(() => Math.random() - 0.5);
 
-  // Preload all images for smoother transitions
-  bgImages.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
+    let currentIndex = 0;
 
-  function nextImage() {
-    let nextIndex;
+    // Create img elements
+    images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        slideshow.appendChild(img);
+    });
 
-    if (imageRandomOrder) {
-      do {
-        nextIndex = Math.floor(Math.random() * bgImages.length);
-      } while (nextIndex === currentIndex && bgImages.length > 1);
-    } else {
-      nextIndex = (currentIndex + 1) % bgImages.length;
-    }
+    const imgElements = slideshow.querySelectorAll('img');
+    imgElements[0].classList.add('active');
 
-    currentIndex = nextIndex;
-
-    bgDiv.style.opacity = 0;
-    setTimeout(() => {
-      bgDiv.style.backgroundImage = `url('${bgImages[currentIndex]}')`;
-      bgDiv.style.opacity = 1;
-    }, imageFadeTime); // fade time from config
-
-    setTimeout(nextImage, imageDisplayTime); // duration per image from config
-  }
-
-  window.addEventListener('load', () => {
-    nextImage();
-  });
+    setInterval(() => {
+        const nextIndex = (currentIndex + 1) % imgElements.length;
+        imgElements[currentIndex].classList.remove('active');
+        imgElements[nextIndex].classList.add('active');
+        currentIndex = nextIndex;
+    }, displayTime);
 }

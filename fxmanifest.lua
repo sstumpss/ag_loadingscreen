@@ -19,6 +19,6 @@ files {
     'html/config.js',
     'html/assets/js/**',
     'html/assets/css/**',
-    'html/assets/img/**'
+    'html/assets/img/**',
     'html/assets/images/**'
 }
