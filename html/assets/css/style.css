@@ -473,3 +473,19 @@ video {
   display: none;
   top: 0;
 }
+
+
+#bg-slideshow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1s ease-in-out;
+  z-index: -1;
+  opacity: 1;
+  display: none;
+}

@@ -54,6 +54,21 @@ const tipsConfig = [
 ];
 
 
+// Image settings
+const bgImages = [
+  'images/1.png',
+  'images/2.png',
+  'images/3.png',
+  'images/4.png',
+  'images/5.png',
+  'images/6.png',
+  'images/7.png',
+  'images/8.png',
+  'images/9.png',
+];
+
+
+
 
 // Staff Settings
 const showStaffTeam = true
@@ -105,6 +120,11 @@ const enableLocalVideo = false
 // Local audio
 const localAudio = false
 
+// Image Slideshow Settings
+const enableImageSlideshow = true; // true = use image slideshow if no video is enabled
+const imageDisplayTime = 6000;     // how long each image stays up (ms)
+const imageFadeTime = 1000;        // how long fade transition takes (ms)
+const imageRandomOrder = true;     // true = random order, false = in sequence
 
 
 // HELP //

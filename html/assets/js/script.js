@@ -335,3 +335,51 @@ function resumeProgress() {
 }
 
 load_tips(tipsConfig);
+
+
+
+// -------------------- Slideshow Background --------------------
+if (
+  typeof bgImages !== 'undefined' &&
+  bgImages.length > 0 &&
+  enableImageSlideshow &&
+  !enableLocalVideo &&
+  !showYoutubeVideo
+) {
+  const bgDiv = document.getElementById('bg-slideshow');
+  bgDiv.style.display = 'block';
+
+  let currentIndex = -1;
+
+  // Preload all images for smoother transitions
+  bgImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+
+  function nextImage() {
+    let nextIndex;
+
+    if (imageRandomOrder) {
+      do {
+        nextIndex = Math.floor(Math.random() * bgImages.length);
+      } while (nextIndex === currentIndex && bgImages.length > 1);
+    } else {
+      nextIndex = (currentIndex + 1) % bgImages.length;
+    }
+
+    currentIndex = nextIndex;
+
+    bgDiv.style.opacity = 0;
+    setTimeout(() => {
+      bgDiv.style.backgroundImage = `url('${bgImages[currentIndex]}')`;
+      bgDiv.style.opacity = 1;
+    }, imageFadeTime); // fade time from config
+
+    setTimeout(nextImage, imageDisplayTime); // duration per image from config
+  }
+
+  window.addEventListener('load', () => {
+    nextImage();
+  });
+}
