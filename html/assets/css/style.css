@@ -473,3 +473,28 @@ video {
   display: none;
   top: 0;
 }
+
+#bg-slideshow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+}
+
+#bg-slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--fadeTime, 1s) ease-in-out;
+}
+
+#bg-slideshow img.active {
+  opacity: 1;
+}

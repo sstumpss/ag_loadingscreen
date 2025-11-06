@@ -150,7 +150,15 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady() {
-	if (localAudio) { yt.mute(); }
+    if (localAudio) { yt.mute(); }
+    // If a defaultVolume is configured, ensure the YouTube player uses it when ready
+    try {
+        if (typeof defaultVolume !== 'undefined' && yt && typeof yt.setVolume === 'function') {
+            yt.setVolume(defaultVolume);
+        }
+    } catch (err) {
+        console.warn('Failed to set YouTube volume on ready:', err);
+    }
 }
 
 function toggleMute(self) {
@@ -161,6 +169,25 @@ function toggleMute(self) {
 	}
 	if (a && a[0]) { a[0].muted = isMute; }
 	if (vl && vl[0]) { if (localAudio){vl[0].muted = true}; vl[0].muted = localAudio || isMute; }
+}
+
+// Initialize default volume from config (if provided)
+try {
+    if (typeof defaultVolume !== 'undefined') {
+        const slider = document.querySelector('.volume-slider');
+        const display = document.querySelector('.inpt span');
+        if (slider) slider.value = defaultVolume;
+        if (display) display.textContent = defaultVolume + '%';
+
+        // apply the default volume (setVolume will update audio/video/yt where applicable)
+        // use a slight timeout to ensure media elements / player have been created
+        setTimeout(function() {
+            try { setVolume(defaultVolume); } catch (e) { console.warn('setVolume failed:', e); }
+            try { if (yt && typeof yt.setVolume === 'function') yt.setVolume(defaultVolume); } catch (e) { /* ignore */ }
+        }, 50);
+    }
+} catch (err) {
+    console.warn('Default volume initialization failed:', err);
 }
 
 function togglePause(self) {
@@ -335,3 +362,35 @@ function resumeProgress() {
 }
 
 load_tips(tipsConfig);
+
+
+
+// === Image Slideshow System (v1.6.5) ===
+if (typeof enableImageSlideshow !== 'undefined' && enableImageSlideshow) {
+    const slideshow = document.getElementById('bg-slideshow');
+    const images = slideshowImages || ['images/1.png', 'images/2.png', 'images/3.png'];
+    const fadeTime = imageFadeTime || 1000;
+    const displayTime = imageDisplayTime || 6000;
+    const randomOrder = imageRandomOrder || false;
+
+    if (randomOrder) images.sort(() => Math.random() - 0.5);
+
+    let currentIndex = 0;
+
+    // Create img elements
+    images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        slideshow.appendChild(img);
+    });
+
+    const imgElements = slideshow.querySelectorAll('img');
+    imgElements[0].classList.add('active');
+
+    setInterval(() => {
+        const nextIndex = (currentIndex + 1) % imgElements.length;
+        imgElements[currentIndex].classList.remove('active');
+        imgElements[nextIndex].classList.add('active');
+        currentIndex = nextIndex;
+    }, displayTime);
+}
