@@ -1,25 +1,25 @@
 local resourceName = GetCurrentResourceName()
 local localVersion = GetResourceMetadata(resourceName, 'version', 0)
 
--- Read config.js so we can pull checkForUpdates + repoUrl
-local configData = LoadResourceFile(resourceName, 'config.js') or ""
+-- Load config.js from html folder
+local configData = LoadResourceFile(resourceName, 'html/config.js') or ""
 
--- Parse values
+-- Parse values from config.js
 local checkForUpdates = string.match(configData, 'const%s+checkForUpdates%s*=%s*(true)') ~= nil
 local repoUrl = string.match(configData, 'const%s+repoUrl%s*=%s*[\'"]([^\'"]+)[\'"]')
 
--- Run only when the resource starts
+-- Run once when the resource starts
 AddEventHandler('onResourceStart', function(resName)
     if resName ~= resourceName then return end
-    Wait(2000) -- small delay so console prints nicely
+    Wait(2000) -- Give console time to initialize
 
-    if not checkForUpdates or not repoUrl then
+    if not checkForUpdates or not repoUrl or repoUrl == "" then
         print(("^3[%s]^7 Update checker disabled or repo URL missing."):format(resourceName))
         return
     end
 
     CreateThread(function()
-        -- Convert GitHub repo URL → raw fxmanifest URL
+        -- Convert GitHub repo URL → raw fxmanifest.lua URL
         local rawManifest = repoUrl:gsub("github.com", "raw.githubusercontent.com") .. "/main/fxmanifest.lua"
 
         PerformHttpRequest(rawManifest, function(status, response)
@@ -28,7 +28,7 @@ AddEventHandler('onResourceStart', function(resName)
                 if remoteVersion then
                     if remoteVersion ~= localVersion then
                         print(("^1[%s]^7 Update available! ^3(Current: %s | Latest: %s)^7"):format(resourceName, localVersion or "unknown", remoteVersion))
-                        print(("^2Download here:^7 %s"):format(repoUrl))
+                        print(("^2Download the latest version here:^7 %s"):format(repoUrl))
                     else
                         print(("^2[%s]^7 Running latest version (^3%s^7)."):format(resourceName, localVersion))
                     end
