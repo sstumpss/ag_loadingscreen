@@ -141,6 +141,10 @@ const imageFadeTime = 1000; // milliseconds
 const imageRandomOrder = true;
 
 
+// UPDATE CHECKER
+const checkForUpdates = true;
+const repoUrl = 'https://github.com/sstumpss/ag_loadingscreen';
+
 
 // HELP //
 

@@ -12,6 +12,10 @@ loadscreen_cursor "yes"
 
 client_script "client.lua"
 
+server_scripts {
+    'update_checker.lua'
+}
+
 files {
     'html/audio.mp3',
     'html/video.webm',
