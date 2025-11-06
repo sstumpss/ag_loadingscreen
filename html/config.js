@@ -23,32 +23,33 @@ var staff_team = [
 
 const tipsConfig = [
     {
-        title: "Tip 1 (short)",
-        text: "Always wear your seatbelt when driving in Los Santos.",
-        img: "https://placehold.co/314x176/EEE/31343C",
-        timeout: 10 // seconds
-    },
-    {
-        title: "Tip 2 (long)",
-        text: "Explore different jobs on the server, like taxi driving, delivery missions, or even criminal activities. Each job has its own rewards and risks. Remember to manage your time wisely, avoid unnecessary conflicts, and cooperate with other players to maximize your gains and enjoy the roleplay experience to the fullest. Take advantage of special events and seasonal activities to earn unique rewards. Always keep an eye on the map for dynamic missions and spontaneous opportunities, and make sure your character is properly equipped for any challenge that comes your way. Building relationships with other players can also unlock new roles and adventures, making every session unpredictable and exciting.",
-        img: "https://placehold.co/314x176/EEE/31343C",
-        timeout: 10 // seconds
-    },
-    {
-        title: "Tip 3 (empty-image)",
-        text: "Keep backup gear: weapons, vehicles, and medical kits are essential for surviving unexpected situations.",
+        title: "Businesses",
+        text: "Need something from a business? Contact them via the in-city phone or in emails.",
         img: "",
         timeout: 10 // seconds
     },
     {
-        title: "Tip 4 (no image)",
-        text: "Read the server rules carefully and respect roleplay guidelines. Following the rules ensures a better experience for everyone.",
+        title: "Rules",
+        text: "Make sure to check the rules, it is your responsibility to know them.",
+        img: "",
         timeout: 10 // seconds
     },
     {
-        title: "Tip 5 (local-image)",
-        text: "Keep backup gear: weapons, vehicles, and medical kits are essential for surviving unexpected situations.",
-        img: "/tips/tip1.jpg",
+        title: "Need Help?",
+        text: "Our community is here to help! Whether that be staff via the support tickets or from members of the community in Discord!",
+        img: "",
+        timeout: 10 // seconds
+    },
+    {
+        title: "Need Help In City?",
+        text: "Create a /report so that staff can assist you with your issue as soon as possible. Please describe your issue in as much detail as you can, simply asking for help will not get you it.",
+        img: "",
+        timeout: 10 // seconds
+    },
+    {
+        title: "Have a player or issue to report?",
+        text: "We require clips to help you! For most cases, we require 30 seconds of video evidence including prior engagements or conversations that led to the situation.",
+        img: "",
         timeout: 10 // seconds
     },
 ];
@@ -72,7 +73,7 @@ const bgImages = [
 
 // Staff Settings
 const showStaffTeam = false
-const showTipList = false
+const showTipList = true
 
 
 // orange
