@@ -23,12 +23,6 @@ var staff_team = [
 
 const tipsConfig = [
     {
-        title: "Businesses",
-        text: "Need something from a business? Contact them via the in-city phone or in emails.",
-        img: "",
-        timeout: 10 // seconds
-    },
-    {
         title: "Rules",
         text: "Make sure to check the rules, it is your responsibility to know them.",
         img: "",
@@ -49,6 +43,12 @@ const tipsConfig = [
     {
         title: "Have a player or issue to report?",
         text: "We require clips to help you! For most cases, we require 30 seconds of video evidence including prior engagements or conversations that led to the situation.",
+        img: "",
+        timeout: 10 // seconds
+    },
+    {
+        title: "Businesses",
+        text: "Need something from a business? Contact them via the in-city phone or in emails.",
         img: "",
         timeout: 10 // seconds
     },
@@ -120,6 +120,8 @@ const enableLocalVideo = false
 
 // Local audio
 const localAudio = true
+// Default volume level (0-100). This sets the initial slider value and media volume on load.
+const defaultVolume = 30
 
 // === Slideshow Configuration (v1.6.5) ===
 const enableImageSlideshow = true;
