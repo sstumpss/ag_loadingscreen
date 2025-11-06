@@ -20,5 +20,5 @@ files {
     'html/assets/js/**',
     'html/assets/css/**',
     'html/assets/img/**',
-    'html/assets/images/**'
+    'html/images/**'
 }
