@@ -10,6 +10,43 @@ $(".center h1").html(name)
 $(".center p").html(underName)
 $(".center span").html(desc)
 var serverInfo = null
+
+// Apply font settings from config.js (fontSettings & fontsToLoad)
+function applyFontStyles(settings) {
+    if (!settings || typeof settings !== 'object') return;
+
+    function apply(selector, cssObj) {
+        if (!cssObj) return;
+        try {
+            // convert JS property names to CSS-friendly values are already strings
+            $(selector).css(cssObj);
+        } catch (e) {
+            console.warn('Failed to apply font style to', selector, e);
+        }
+    }
+
+    apply('.center h1', settings.name);
+    apply('.center p', settings.underName);
+    apply('.center span', settings.desc);
+    apply('.panelInfo .panelItem .bg h2', settings.tipTitle);
+    apply('.panelInfo .panelItem .bg p', settings.tipText);
+    apply('.staff .info p', settings.staffName);
+    apply('.staff .status', settings.staffRank);
+
+    // Load any external font stylesheets
+    try {
+        if (Array.isArray(window.fontsToLoad)) {
+            window.fontsToLoad.forEach(url => {
+                if (!url) return;
+                if (!$(`link[href="${url}"]`).length) {
+                    $('head').append(`<link href="${url}" rel="stylesheet">`);
+                }
+            });
+        }
+    } catch (e) {
+        console.warn('Failed to inject fontsToLoad', e);
+    }
+}
 function loading(num){
 	let current = parseInt($(".loading-bar p").text(), 10) || 0;
 	const step = 1;
@@ -393,4 +430,22 @@ if (typeof enableImageSlideshow !== 'undefined' && enableImageSlideshow) {
         imgElements[nextIndex].classList.add('active');
         currentIndex = nextIndex;
     }, displayTime);
+}
+
+// After tips and staff have been rendered, apply font settings (if provided)
+try {
+    if (typeof fontSettings !== 'undefined') {
+        // Ensure any fontsToLoad from config.js are forwarded to window for applyFontStyles
+        if (typeof window !== 'undefined') {
+            if (typeof fontsToLoad !== 'undefined' && Array.isArray(fontsToLoad)) {
+                window.fontsToLoad = fontsToLoad.slice();
+            } else {
+                window.fontsToLoad = window.fontsToLoad || [];
+            }
+        }
+        // call the applier
+        applyFontStyles(fontSettings);
+    }
+} catch (e) {
+    console.warn('Applying font settings failed:', e);
 }

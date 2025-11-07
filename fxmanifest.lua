@@ -4,7 +4,7 @@ lua54 'yes'
 
 author 'stumps X Nevera Development'
 description 'AG Loading Screen'
-version '1.6.6'
+version '1.6.7'
 
 loadscreen_manual_shutdown "yes"
 loadscreen 'html/index.html'
