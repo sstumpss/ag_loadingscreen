@@ -95,6 +95,71 @@ const underName = "GAM<b>ING</b>"
 const desc = ""
 
 
+// Font / typography settings
+// You can provide Google font URLs (or other stylesheet URLs) in `fontsToLoad` to be injected into the page.
+// `fontSettings` accepts CSS properties as strings for each text role.
+const fontsToLoad = [
+    // Load Audiowide for a uniform test font across the loading screen
+    "https://fonts.googleapis.com/css2?family=Audiowide&display=swap",
+];
+
+const fontSettings = {
+    // Upper title (the `name` from config)
+    name: {
+        fontFamily: "'Audiowide', cursive",
+        fontSize: "5vw",
+        fontWeight: "900",
+        fontStyle: "italic",
+        color: "#ffffff",
+        letterSpacing: "0.25vw"
+    },
+    // Lower title (the `underName` from config)
+    underName: {
+        fontFamily: "'Audiowide', cursive",
+        fontSize: "2vw",
+        fontWeight: "800",
+        fontStyle: "italic",
+        color: "#ffffff",
+        letterSpacing: "0.2vw"
+    },
+    // Description (the `desc` from config)
+    desc: {
+        fontFamily: "'Audiowide', cursive",
+        fontSize: "0.75vw",
+        fontWeight: "400",
+        color: "#dbdbdb"
+    },
+    // Tips list title (tipsConfig[].title)
+    tipTitle: {
+        fontFamily: "'Audiowide', cursive",
+        fontSize: "1.3vw",
+        fontWeight: "600",
+        color: "#ffffff"
+    },
+    // Tips list description (tipsConfig[].text)
+    tipText: {
+        fontFamily: "'Audiowide', cursive",
+        fontSize: "0.7vw",
+        fontWeight: "300",
+        color: "#9f9f9f"
+    },
+    // Staff team name (staff_team[].name)
+    staffName: {
+        fontFamily: "'Audiowide', cursive",
+        fontSize: "0.7vw",
+        fontWeight: "700",
+        color: "#ffffff"
+    },
+    // Staff team rank (staff_team[].rank)
+    staffRank: {
+        fontFamily: "'Audiowide', cursive",
+        fontSize: "0.7vw",
+        fontWeight: "700",
+        color: "rgba(193, 67, 255, 1)" // default uses --main color in CSS; keep a visible default here
+    }
+};
+
+
 // Social media
 const discord = "https://discord.com/astralgaming"  // If = "" then icon will not show up on screen
 const instagram = ""	// https://example.com

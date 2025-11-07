@@ -8,8 +8,10 @@
 - **Make sure you replace the audio and images.**
 
 
+## v1.6.5 Changelogs - 7/11/2025
+- Added easy way to change the font family in config.js.
 
-## v1.6.5 Changelogs - 6/11/2025
+## v1.6.5 Changelogs - 7/11/2025
 - Added update check feature, configurable in the config.js.
 
 ## v1.6.5 Changelogs - 6/11/2025
