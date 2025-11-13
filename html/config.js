@@ -210,8 +210,29 @@ const fontSettings = {
 };
 
 
+// Layout settings
+// Positions: 'top-left' | 'top-center' | 'top-right' | 'center' | 'bottom-left' | 'bottom-center' | 'bottom-right'
+// Offsets accept any valid CSS length (e.g., '1vw', '16px').
+const layoutConfig = {
+    title: {
+        position: 'bottom-right',
+        align: 'right', // 'left' | 'center' | 'right'
+        offsetX: '3vw', // distance from the chosen horizontal edge
+        offsetY: '0vw'  // distance from the chosen vertical edge
+    },
+    progress: {
+        position: 'bottom-center',
+        offsetY: '1vw'
+    },
+    controls: {
+        position: 'bottom-left',
+        offsetY: '0vw' // a bit above the progress bar
+    }
+}
+
+
 // Social media
-const discord = "https://discord.com/astralgaming"  // If = "" then icon will not show up on screen
+const discord = ""  // If = "" then icon will not show up on screen
 const instagram = ""	// https://example.com
 const youtube = "" 		// https://example.com
 const twitter = "" 		// https://example.com

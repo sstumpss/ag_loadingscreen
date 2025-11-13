@@ -68,6 +68,74 @@ function loading(num){
 	$(".loading-bar .line").width(num + "%");
 }
 
+// Layout helper: position elements based on config
+function positionElement($el, where, offsetX, offsetY) {
+    if (!$el || !$el.length) return;
+    const pos = (where || 'center').toLowerCase();
+    const ox = offsetX || '0';
+    const oy = offsetY || '0';
+
+    const css = { position: 'fixed', top: '', bottom: '', left: '', right: '', transform: '' };
+
+    switch (pos) {
+        case 'top-left':
+            css.top = oy; css.left = ox; css.transform = 'none';
+            break;
+        case 'top-center':
+            css.top = oy; css.left = '50%'; css.transform = 'translateX(-50%)';
+            break;
+        case 'top-right':
+            css.top = oy; css.right = ox; css.transform = 'none';
+            break;
+        case 'bottom-left':
+            css.bottom = oy; css.left = ox; css.transform = 'none';
+            break;
+        case 'bottom-center':
+            css.bottom = oy; css.left = '50%'; css.transform = 'translateX(-50%)';
+            break;
+        case 'bottom-right':
+            css.bottom = oy; css.right = ox; css.transform = 'none';
+            break;
+        case 'center':
+        default:
+            css.top = '50%'; css.left = '50%'; css.transform = 'translate(-50%, -50%)';
+            break;
+    }
+
+    $el.css(css);
+}
+
+function applyLayout(cfg) {
+    try {
+        if (!cfg) return;
+        // Title container
+        const $title = $('.center');
+        if ($title.length && cfg.title) {
+            positionElement($title, cfg.title.position, cfg.title.offsetX, cfg.title.offsetY);
+            // Align title content horizontally
+            const align = (cfg.title.align || 'left').toLowerCase();
+            const flexAlign = align === 'center' ? 'center' : (align === 'right' ? 'flex-end' : 'flex-start');
+            $title.css({ 'align-items': flexAlign, 'text-align': align });
+        }
+
+        // Progress bar
+        const $progress = $('.loading-bar');
+        if ($progress.length && cfg.progress) {
+            positionElement($progress, cfg.progress.position, cfg.progress.offsetX, cfg.progress.offsetY);
+        }
+
+        // Controls
+        const $controls = $('.mini-buttons');
+        if ($controls.length && cfg.controls) {
+            // force fixed so our positioning works regardless of existing CSS
+            $controls.css('position', 'fixed');
+            positionElement($controls, cfg.controls.position, cfg.controls.offsetX, cfg.controls.offsetY);
+        }
+    } catch (e) {
+        console.warn('Failed to apply layout:', e);
+    }
+}
+
 if (showStaffTeam){
 	$(".panel.staffteam").show()
 	staff_team.forEach(function(user){
@@ -93,6 +161,9 @@ window.addEventListener('message', function(e) {
         loading(num);
     }
 });
+
+// Apply layout early (after DOM elements exist)
+try { if (typeof layoutConfig !== 'undefined') { applyLayout(layoutConfig); } } catch (e) { console.warn('Layout init failed', e); }
 
 const socials = { discord, instagram, youtube, twitter, tiktok, facebook, twitch, github };
 const platforms = ["discord", "instagram", "youtube", "twitter", "tiktok", "facebook", "twitch", "github"];
