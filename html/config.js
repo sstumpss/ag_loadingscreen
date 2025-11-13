@@ -9,15 +9,65 @@
 var staff_team = [
 
 	{
-		"name":"Nevera Owner",
-		"image":"https://forum.cfx.re/user_avatar/forum.cfx.re/neveradevelopment/144/4447132_2.png",
-		"rank":"Owner"
+		"name":"Sasha",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Owner / Dev"
 	},
 	{
-		"name":"Nevera Admin",
-		"image":"https://forum.cfx.re/user_avatar/forum.cfx.re/neveradevelopment/144/4447132_2.png",
-		"rank":"Admin"
-	}
+		"name":"Chace",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Owner"
+	},
+    {
+		"name":"Kyzn",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Owner"
+	},
+    {
+		"name":"Amoura",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Leadership"
+	},
+    {
+		"name":"KLAUS",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Leadership"
+	},
+    {
+		"name":"stumps",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Developer"
+	},
+    {
+		"name":"Roger",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Developer"
+	},
+    {
+		"name":"Dawn",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Management"
+	},
+    {
+		"name":"Jonty",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Management"
+	},
+    {
+		"name":"Clipz",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Management"
+	},
+    {
+		"name":"Mik",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Staff Manager"
+	},
+    {
+		"name":"Saint",
+		"image":"https://i.ibb.co/hJ2SsHnn/Astral-Logo-2.gif",
+		"rank":"Staff Manager"
+	},
 
 ]
 
@@ -72,8 +122,8 @@ const bgImages = [
 
 
 // Staff Settings
-const showStaffTeam = false
-const showTipList = true
+const showStaffTeam = true
+const showTipList = false
 
 
 // orange
@@ -82,7 +132,7 @@ const showTipList = true
 // green
 // pink
 // purple
-const theme = "purple"
+const theme = "red"
 
 // ==== WINTER UPDATE !! ==== \\
 const enableWinterUpdate = true
