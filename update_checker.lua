@@ -20,7 +20,7 @@ AddEventHandler('onResourceStart', function(resName)
 
     CreateThread(function()
         -- Convert GitHub repo URL → raw fxmanifest.lua URL
-        local rawManifest = repoUrl:gsub("github.com", "raw.githubusercontent.com") .. "/main/fxmanifest.lua"
+        local rawManifest = repoUrl:gsub("github.com", "raw.githubusercontent.com") .. "/ag/fxmanifest.lua"
 
         PerformHttpRequest(rawManifest, function(status, response)
             if status == 200 and response then

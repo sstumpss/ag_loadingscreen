@@ -122,7 +122,7 @@ const bgImages = [
 
 
 // Staff Settings
-const showStaffTeam = true
+const showStaffTeam = false
 const showTipList = false
 
 
@@ -248,8 +248,6 @@ const slideshowImages = [
     'images/5.png',
     'images/6.png',
     'images/7.png',
-    'images/8.png',
-    'images/9.png',
 ];
 const imageDisplayTime = 6000; // milliseconds
 const imageFadeTime = 1000; // milliseconds
