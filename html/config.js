@@ -140,8 +140,8 @@ const enableWinterUpdate = true
 
 
 // Text settings
-const name = "<strong>AST</strong>RAL"
-const underName = "GAM<b>ING</b>"
+const name = "</strong>ASTRAL"
+const underName = "</b>GAMING<b>"
 const desc = ""
 
 
@@ -157,10 +157,10 @@ const fontSettings = {
     // Upper title (the `name` from config)
     name: {
         fontFamily: "'Audiowide', cursive",
-        fontSize: "5vw",
+        fontSize: "3vw",
         fontWeight: "900",
         fontStyle: "italic",
-        color: "#ffffff",
+        color: "#ff0000ff",
         letterSpacing: "0.25vw"
     },
     // Lower title (the `underName` from config)
@@ -236,7 +236,7 @@ const enableLocalVideo = false
 // Local audio
 const localAudio = true
 // Default volume level (0-100). This sets the initial slider value and media volume on load.
-const defaultVolume = 30
+const defaultVolume = 20
 
 // === Slideshow Configuration (v1.6.5) ===
 const enableImageSlideshow = true;
