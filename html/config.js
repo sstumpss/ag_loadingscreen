@@ -9,15 +9,17 @@
 var staff_team = [
 
 	{
-		"name":"Nevera Owner",
-		"image":"https://forum.cfx.re/user_avatar/forum.cfx.re/neveradevelopment/144/4447132_2.png",
+		"name":"Your Name Here",
+		"image":"",
 		"rank":"Owner"
 	},
-	{
-		"name":"Nevera Admin",
-		"image":"https://forum.cfx.re/user_avatar/forum.cfx.re/neveradevelopment/144/4447132_2.png",
-		"rank":"Admin"
-	}
+    {
+		"name":"Your Name Here",
+		"image":"",
+		"rank":"Developer"
+	},
+
+
 
 ]
 
@@ -31,24 +33,6 @@ const tipsConfig = [
     {
         title: "Need Help?",
         text: "Our community is here to help! Whether that be staff via the support tickets or from members of the community in Discord!",
-        img: "",
-        timeout: 10 // seconds
-    },
-    {
-        title: "Need Help In City?",
-        text: "Create a /report so that staff can assist you with your issue as soon as possible. Please describe your issue in as much detail as you can, simply asking for help will not get you it.",
-        img: "",
-        timeout: 10 // seconds
-    },
-    {
-        title: "Have a player or issue to report?",
-        text: "We require clips to help you! For most cases, we require 30 seconds of video evidence including prior engagements or conversations that led to the situation.",
-        img: "",
-        timeout: 10 // seconds
-    },
-    {
-        title: "Businesses",
-        text: "Need something from a business? Contact them via the in-city phone or in emails.",
         img: "",
         timeout: 10 // seconds
     },
@@ -90,8 +74,8 @@ const enableWinterUpdate = true
 
 
 // Text settings
-const name = "<strong>AST</strong>RAL"
-const underName = "GAM<b>ING</b>"
+const name = "</strong>SERVER"
+const underName = "</b>NAME<b>"
 const desc = ""
 
 
